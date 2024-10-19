@@ -12,5 +12,6 @@ switch (args[0]) {
     console.log(`importe: ${importekm} & ganancia: ${gananciakm}`);
     break;
   default:
+    console.log('Parametros invalidos');
     break;
 }
