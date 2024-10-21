@@ -12,20 +12,24 @@ const salida = (importe, ganancia) => {
   console.log(`importe: ${importe} & ganancia: ${ganancia}`);
 };
 
-const datos = entrada();
+const calculaGanancia = (importe) => {
+  return importe * porcentajeGanancia;
+};
 
-switch (datos[0]) {
-  case 'h':
-    const importe = Number(datos[1]) * costoPorHora;
-    const ganancia = importe * porcentajeGanancia;
-    salida(importe, ganancia);
-    break;
-  case 'k':
-    const importekm = costoBaseKm + Number(datos[1]) * costoPorKm;
-    const gananciakm = importekm * porcentajeGanancia;
-    salida(importekm, gananciakm);
-    break;
-  default:
-    console.log('Parametros invalidos');
-    break;
+const datos = entrada();
+const tipoAlquiler = datos[0];
+let importe = 0;
+
+if (tipoAlquiler !== 'h' && tipoAlquiler !== 'k') {
+  console.log('Parametros invalidos');
+  return false;
 }
+
+if (tipoAlquiler === 'h') {
+  importe = Number(datos[1]) * costoPorHora;
+} else {
+  importe = costoBaseKm + Number(datos[1]) * costoPorKm;
+}
+
+const ganancia = calculaGanancia(importe);
+salida(importe, ganancia);
