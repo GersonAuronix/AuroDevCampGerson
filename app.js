@@ -22,7 +22,7 @@ let importe = 0;
 
 if (tipoAlquiler !== 'h' && tipoAlquiler !== 'k') {
   console.log('Parametros invalidos');
-  return false;
+  process.exit(0);
 }
 
 if (tipoAlquiler === 'h') {
