@@ -7,8 +7,7 @@ const parametroAlquiler = datos[1];
 
 const importe = calculaImporte(tipoAlquiler, parametroAlquiler);
 if (importe <= -1 && importe >= -3) {
-  console.log('uno o mas parametros son incorrectos');
-  process.exit(0);
+  throw new Error('Uno o mas parametros son incorrectos');
 }
 
 const ganancia = calculaGanancia(importe);
